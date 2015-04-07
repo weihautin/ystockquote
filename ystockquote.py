@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 #  ystockquote : Python module - retrieve stock quote data from Yahoo Finance
 #
@@ -24,14 +25,20 @@ except ImportError:
     from urllib2 import Request, urlopen
     from urllib import urlencode
 
-# symbol 代表股票的縮寫
-# stat   代表需要擷取的資料-英文碼即ids,不知道作者怎取得的
+ 
+
 def _request(symbol, stat):
+    """
+    symbol: 代表股票名稱縮寫 EX:goog表示google
+      stat: 代表擷取資料英文碼,    EX: change_from_52_week_low用j5表示
+    """
     url = 'http://finance.yahoo.com/d/quotes.csv?s=%s&f=%s' % (symbol, stat)
     req = Request(url)
     resp = urlopen(req)
     content = resp.read().decode().strip()
     return content
+
+#
 
 
 def get_all(symbol):
@@ -128,7 +135,6 @@ def get_all(symbol):
         price_eps_estimate_next_year=values[79],
         short_ratio=values[80],
     )
-
 
 
 def get_dividend_yield(symbol):

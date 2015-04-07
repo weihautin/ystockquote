@@ -1,14 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Apr  7 09:40:45 2015
-
-@author: tim
-"""
-
 import ystockquote
-
-from pprint import pprint
-
 
 
 abc = ystockquote.get_all('GOOG')
