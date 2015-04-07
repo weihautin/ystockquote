@@ -24,7 +24,8 @@ except ImportError:
     from urllib2 import Request, urlopen
     from urllib import urlencode
 
-
+# symbol 代表股票的縮寫
+# stat   代表需要擷取的資料-英文碼即ids,不知道作者怎取得的
 def _request(symbol, stat):
     url = 'http://finance.yahoo.com/d/quotes.csv?s=%s&f=%s' % (symbol, stat)
     req = Request(url)
